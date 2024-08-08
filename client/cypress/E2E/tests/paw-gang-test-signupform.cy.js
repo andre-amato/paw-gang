@@ -16,7 +16,7 @@ describe('My First Test', () => {
     cy.contains('div', /Password/)
     cy.contains('div', /Username/)
     cy.contains('div', /Dog/)
-    cy.get("input[placeholder='hachiko@example.com']").type('andre@gmail.com');
+    cy.get("input[placeholder='hachiko@example.com']").type('andre555@gmail.com');
     cy.get("input[placeholder='********']").type('123');
     cy.get("input[placeholder='Your Username']").type('andre2222');
     cy.get("input[placeholder*='Your Dog']").type('Remela');
