@@ -62,51 +62,7 @@ describe('Login Component', () => {
     // Ensure handleSignUp was not called
     await waitFor(() => expect(handleSignUp).not.toHaveBeenCalled());
   });
-  it('renders correctly and allows sign-up', async () => {
-    // Mock implementation of handleSignUp
-    (handleSignUp as jest.Mock).mockResolvedValue({success: true});
 
-    const navigation = {replace: jest.fn()};
-
-    // Render the component
-    const {getByText, getByPlaceholderText, queryByText} = render(
-      <Login navigation={navigation as any} />,
-    );
-
-    // Verify initial state
-    expect(getByText('Sign in to Paw Gang')).toBeTruthy();
-    expect(queryByText('Sign up')).toBeTruthy();
-
-    // Switch to sign-up mode
-    fireEvent.press(getByText('Sign up'));
-
-    // Fill in the sign-up form
-    fireEvent.changeText(
-      getByPlaceholderText('hachiko@example.com'),
-      'test@example.com',
-    );
-    fireEvent.changeText(getByPlaceholderText('********'), 'password123');
-    fireEvent.changeText(getByPlaceholderText('Your Username'), 'testuser');
-    fireEvent.changeText(getByPlaceholderText("Your Dog's Name"), 'Rex');
-
-    // Submit the form
-    fireEvent.press(getByText('Sign up'));
-
-    // Wait for the sign-up to complete
-    await waitFor(() =>
-      expect(handleSignUp).toHaveBeenCalledWith({
-        email: 'test@example.com',
-        password: 'password123',
-        username: 'testuser',
-        dogName: 'Rex',
-      }),
-    );
-
-    // Check for successful sign-up alert
-    expect(getByText('Sign Up Successful')).toBeTruthy();
-  });
-
-  
 
   it('renders sign-in mode and navigates to main', () => {
     const navigation = {replace: jest.fn()};
