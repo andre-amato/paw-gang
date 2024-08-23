@@ -7,8 +7,8 @@ exports.TEST_MONOGDB_URI = exports.MONGODB_URI = exports.GOOGLE_MAPS_API_KEY = e
 const dotenv_1 = __importDefault(require("dotenv"));
 // Load environment variables from .env file
 dotenv_1.default.config();
-exports.SERVER_PORT = process.env.SERVER_PORT || 3000;
-exports.LOCAL_IP_ADDRESS = process.env.LOCAL_IP_ADDRESS || '127.0.0.1';
+exports.SERVER_PORT = 3001;
+exports.LOCAL_IP_ADDRESS = '192.168.0.73';
 exports.GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY || '';
 exports.MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/paw-gang';
 exports.TEST_MONOGDB_URI = process.env.TEST_MONGODB_URI || 'mongodb://127.0.0.1:27017/paw-gang-test';
